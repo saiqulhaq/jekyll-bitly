@@ -16,8 +16,8 @@ module Jekyll
     end
 
     def shorten(long_url)
-      input.strip!
-      fetch_or_store(self.class.to_s, input) do
+      long_url.strip!
+      fetch_or_store(self.class.to_s, long_url) do
         bitlink = @bitly_client.shorten(long_url: long_url)
         short_url = bitlink.link
         short_url
@@ -26,8 +26,8 @@ module Jekyll
   end
 
   module BitlyFilter
-    def bitly(input)
-      BitlyFilterCache.instance.shorten(input)
+    def bitly(long_url)
+      BitlyFilterCache.instance.shorten(long_url)
     end
   end
 end
