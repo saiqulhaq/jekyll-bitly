@@ -18,7 +18,7 @@ module Jekyll
     def shorten(input)
       input.strip!
       fetch_or_store(self.class.to_s, input) do 
-        bitlink = bitly.shorten(input, history: 1)
+        bitlink = @bitly_client.shorten(input, history: 1)
         short_url = bitlink.link
         short_url
       end
