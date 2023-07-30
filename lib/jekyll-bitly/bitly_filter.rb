@@ -1,5 +1,7 @@
 require "bitly"
 require "singleton"
+require "dry-core"
+require 'dry/core/cache'
 
 module Jekyll
   class BitlyFilterCache
