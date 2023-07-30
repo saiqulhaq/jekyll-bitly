@@ -16,6 +16,8 @@ module Jekyll
     end
 
     def shorten(long_url)
+      raise "Please setup the Bitly token first in _config.yml" if @bitly_client.blank?
+
       long_url.strip!
       fetch_or_store(self.class.to_s, long_url) do
         bitlink = @bitly_client.shorten(long_url: long_url)
