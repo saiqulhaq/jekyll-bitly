@@ -2,6 +2,7 @@ require "bitly"
 require "singleton"
 require "dry-core"
 require "dry/core/cache"
+require "liquid"
 
 module Jekyll
   class BitlyFilterCache
@@ -19,7 +20,7 @@ module Jekyll
     end
 
     def shorten(long_url)
-      raise "Please setup the Bitly token first in _config.yml" if @bitly_client.blank?
+      raise "Please setup the Bitly token first in _config.yml" if @bitly_client.nil?
 
       long_url.strip!
       fetch_or_store(self.class.to_s, long_url) do

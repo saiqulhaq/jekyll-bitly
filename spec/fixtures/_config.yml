@@ -1,0 +1,9 @@
+title: Test Site
+description: A test Jekyll site for jekyll-bitly gem testing
+baseurl: ""
+url: "http://localhost:4000"
+
+plugins:
+  - jekyll-bitly
+
+# Bitly configuration will use environment variable BITLY_TOKEN
