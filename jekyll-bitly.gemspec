@@ -1,5 +1,4 @@
-# coding: utf-8
-lib = File.expand_path("../lib", __FILE__)
+lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
 require "jekyll-bitly/version"
 
@@ -26,17 +25,16 @@ Gem::Specification.new do |spec|
   spec.add_runtime_dependency "bitly", "~> 3.0.0"
   spec.add_runtime_dependency "dry-core", "~> 1.0.0"
 
-  spec.add_development_dependency "bundler", "~> 2.4.13"
-  spec.add_development_dependency "rake", "~> 13"
-  spec.add_development_dependency "rspec", "~> 3"
-  spec.add_development_dependency "vcr", "~> 6.0"
-  spec.add_development_dependency "webmock", "~> 3.0"
-  spec.add_development_dependency "dotenv", "~> 3.0"
-  spec.add_development_dependency "capybara", "~> 3.0"
-  spec.add_development_dependency "selenium-webdriver", "~> 4.0"
-  spec.add_development_dependency "nokogiri", "~> 1.15"
+  spec.add_development_dependency "byebug"
+  spec.add_development_dependency "capybara"
   spec.add_development_dependency "csv"
-  spec.add_development_dependency "jekyll", "~> 4.3.2"
-  spec.add_development_dependency "rubocop", "~> 0.47.1"
-  spec.add_development_dependency "byebug" if RUBY_VERSION >= "2.0"
+  spec.add_development_dependency "dotenv"
+  spec.add_development_dependency "jekyll"
+  spec.add_development_dependency "nokogiri"
+  spec.add_development_dependency "rake"
+  spec.add_development_dependency "rspec", "~> 3"
+  spec.add_development_dependency "rubocop"
+  spec.add_development_dependency "selenium-webdriver"
+  spec.add_development_dependency "vcr"
+  spec.add_development_dependency "webmock"
 end
