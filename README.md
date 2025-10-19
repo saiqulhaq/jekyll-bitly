@@ -1,5 +1,7 @@
 # Jekyll::Bitly
 
+[![Tests](https://github.com/saiqulhaq/jekyll-bitly/actions/workflows/test.yml/badge.svg)](https://github.com/saiqulhaq/jekyll-bitly/actions/workflows/test.yml)
+
 This gem provides a Bit.ly filter plugin for Jekyll.
 
 ## Installation
