@@ -6,3 +6,4 @@ module Jekyll
   module BitlyFilter
   end
 end
+# rubocop:enable Style/FileName
