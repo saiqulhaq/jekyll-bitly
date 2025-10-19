@@ -1,0 +1,24 @@
+---
+layout: default
+title: Test Page
+---
+
+# Test Page
+
+This is a test page for testing the jekyll-bitly gem.
+
+## Test Links
+
+- GitHub Repository: [Jekyll Bitly]({{ 'https://github.com/saiqulhaq/jekyll-bitly' | bitly }})
+- Example URL: [Example]({{ 'https://example.com' | bitly }})
+- URL with Parameters: [Search]({{ 'https://github.com/search?q=jekyll' | bitly }})
+
+## Test Data Attributes
+
+<div data-original-url="https://github.com/saiqulhaq/jekyll-bitly" data-short-url="{{ 'https://github.com/saiqulhaq/jekyll-bitly' | bitly }}">
+    GitHub Link Test
+</div>
+
+<div data-original-url="https://example.com" data-short-url="{{ 'https://example.com' | bitly }}">
+    Example Link Test
+</div>

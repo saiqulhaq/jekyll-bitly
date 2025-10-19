@@ -10,3 +10,5 @@
 *.swp
 .DS_Store
 .rspec_status
+.env
+/spec/fixtures/_site/

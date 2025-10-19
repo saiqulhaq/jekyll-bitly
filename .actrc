@@ -1,0 +1,3 @@
+# act configuration file
+# Use medium size runner by default for better compatibility
+-P ubuntu-latest=catthehacker/ubuntu:act-latest

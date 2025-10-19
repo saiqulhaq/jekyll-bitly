@@ -1,0 +1,147 @@
+---
+http_interactions:
+- request:
+    method: post
+    uri: https://api-ssl.bitly.com/v4/shorten
+    body:
+      encoding: UTF-8
+      string: '{"long_url":"https://github.com/saiqulhaq/jekyll-bitly"}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby Bitly/3.0.0
+      Authorization:
+      - Bearer <BITLY_TOKEN>
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 11 Oct 2025 08:30:07 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '286'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Xss-Protection:
+      - 1; mode=blockFilter
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      Content-Security-Policy:
+      - default-src 'none
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+    body:
+      encoding: UTF-8
+      string: '{"created_at":"2025-10-11T07:56:40+0000","id":"bit.ly/3KDd1Qe","link":"https://bit.ly/3KDd1Qe","custom_bitlinks":[],"long_url":"https://github.com/saiqulhaq/jekyll-bitly","archived":false,"tags":[],"deeplinks":[],"references":{"group":"https://api-ssl.bitly.com/v4/groups/Bb8lekEYAv4"}}'
+  recorded_at: Sat, 11 Oct 2025 08:30:08 GMT
+- request:
+    method: post
+    uri: https://api-ssl.bitly.com/v4/shorten
+    body:
+      encoding: UTF-8
+      string: '{"long_url":"https://example.com"}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby Bitly/3.0.0
+      Authorization:
+      - Bearer <BITLY_TOKEN>
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 11 Oct 2025 08:30:07 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '265'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Xss-Protection:
+      - 1; mode=blockFilter
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      Content-Security-Policy:
+      - default-src 'none
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+    body:
+      encoding: UTF-8
+      string: '{"created_at":"2025-10-11T07:56:40+0000","id":"bit.ly/3IZhUCC","link":"https://bit.ly/3IZhUCC","custom_bitlinks":[],"long_url":"https://example.com/","archived":false,"tags":[],"deeplinks":[],"references":{"group":"https://api-ssl.bitly.com/v4/groups/Bb8lekEYAv4"}}'
+  recorded_at: Sat, 11 Oct 2025 08:30:09 GMT
+- request:
+    method: post
+    uri: https://api-ssl.bitly.com/v4/shorten
+    body:
+      encoding: UTF-8
+      string: '{"long_url":"https://github.com/search?q=jekyll"}'
+    headers:
+      Accept-Encoding:
+      - gzip;q=1.0,deflate;q=0.6,identity;q=0.3
+      Accept:
+      - application/json
+      User-Agent:
+      - Ruby Bitly/3.0.0
+      Authorization:
+      - Bearer <BITLY_TOKEN>
+      Content-Type:
+      - application/json
+  response:
+    status:
+      code: 200
+      message: OK
+    headers:
+      Server:
+      - nginx
+      Date:
+      - Sat, 11 Oct 2025 08:30:08 GMT
+      Content-Type:
+      - application/json
+      Content-Length:
+      - '279'
+      Strict-Transport-Security:
+      - max-age=31536000; includeSubDomains
+      X-Xss-Protection:
+      - 1; mode=blockFilter
+      X-Content-Type-Options:
+      - nosniff
+      X-Frame-Options:
+      - DENY
+      Content-Security-Policy:
+      - default-src 'none
+      Via:
+      - 1.1 google
+      Alt-Svc:
+      - h3=":443"; ma=2592000,h3-29=":443"; ma=2592000
+    body:
+      encoding: UTF-8
+      string: '{"created_at":"2025-10-11T08:29:49+0000","id":"bit.ly/4od2iu7","link":"https://bit.ly/4od2iu7","custom_bitlinks":[],"long_url":"https://github.com/search?q=jekyll","archived":false,"tags":[],"deeplinks":[],"references":{"group":"https://api-ssl.bitly.com/v4/groups/Bb8lekEYAv4"}}'
+  recorded_at: Sat, 11 Oct 2025 08:30:09 GMT
+recorded_with: VCR 6.3.1
