@@ -13,13 +13,13 @@ VCR.configure do |config|
   config.hook_into :webmock
   config.configure_rspec_metadata!
   config.allow_http_connections_when_no_cassette = true
-  
+
   # Filter sensitive data
-  config.filter_sensitive_data('<BITLY_TOKEN>') { ENV['BITLY_TOKEN'] }
-  
+  config.filter_sensitive_data("<BITLY_TOKEN>") { ENV["BITLY_TOKEN"] }
+
   # Match requests ignoring the access token in query parameters
   config.default_cassette_options = {
-    match_requests_on: [:method, :uri, :body]
+    match_requests_on: %i[method uri body]
   }
 end
 
@@ -48,8 +48,6 @@ RSpec.configure do |config|
   # Clean up after each test
   config.after(:each) do
     # Reset the singleton instance between tests
-    if Jekyll::BitlyFilterCache.instance_variable_defined?(:@singleton__instance__)
-      Jekyll::BitlyFilterCache.remove_instance_variable(:@singleton__instance__)
-    end
+    Jekyll::BitlyFilterCache.remove_instance_variable(:@singleton__instance__) if Jekyll::BitlyFilterCache.instance_variable_defined?(:@singleton__instance__)
   end
 end

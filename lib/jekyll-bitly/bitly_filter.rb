@@ -14,7 +14,7 @@ module Jekyll
       token = if config && config["bitly"] && config["bitly"]["token"]
                 config["bitly"]["token"]
               else
-                ENV['BITLY_TOKEN']
+                ENV["BITLY_TOKEN"]
               end
       @bitly_client = Bitly::API::Client.new(token: token) if token
     end
