@@ -1,11 +1,12 @@
 require "bundler/setup"
 require "dotenv"
 Dotenv.load
-require "jekyll-bitly"
+require "jekyll_bitly_next"
 require "vcr"
 require "webmock/rspec"
 require "jekyll"
 require "capybara/rspec"
+require "byebug"
 
 # Set up VCR
 VCR.configure do |config|

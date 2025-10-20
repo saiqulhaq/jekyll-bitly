@@ -5,17 +5,17 @@ title: Test Page
 
 # Test Page
 
-This is a test page for testing the jekyll-bitly gem.
+This is a test page for testing the jekyll_bitly_next gem.
 
 ## Test Links
 
-- GitHub Repository: [Jekyll Bitly]({{ 'https://github.com/saiqulhaq/jekyll-bitly' | bitly }})
+- GitHub Repository: [Jekyll Bitly]({{ 'https://github.com/saiqulhaq/jekyll_bitly_next' | bitly }})
 - Example URL: [Example]({{ 'https://example.com' | bitly }})
 - URL with Parameters: [Search]({{ 'https://github.com/search?q=jekyll' | bitly }})
 
 ## Test Data Attributes
 
-<div data-original-url="https://github.com/saiqulhaq/jekyll-bitly" data-short-url="{{ 'https://github.com/saiqulhaq/jekyll-bitly' | bitly }}">
+<div data-original-url="https://github.com/saiqulhaq/jekyll_bitly_next" data-short-url="{{ 'https://github.com/saiqulhaq/jekyll_bitly_next' | bitly }}">
     GitHub Link Test
 </div>
 
