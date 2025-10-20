@@ -12,7 +12,7 @@ RSpec.describe "Jekyll Integration", :vcr do
   around do |example|
     FileUtils.rm_rf(destination_dir) if Dir.exist?(destination_dir)
 
-    cassette_name = example.metadata[:full_description].to_s
+    cassette_name = example.metadata[:description].to_s
     cassette_name = cassette_name.downcase.gsub(/\s+/, "_").gsub(/[^a-z0-9_]/, "")
     site = Jekyll::Site.new(Jekyll.configuration({
       "source" => source_dir,
