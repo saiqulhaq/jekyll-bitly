@@ -1,18 +1,18 @@
 lib = File.expand_path("lib", __dir__)
 $LOAD_PATH.unshift(lib) unless $LOAD_PATH.include?(lib)
-require "jekyll-bitly/version"
+require "jekyll_bitly_next/version"
 
 Gem::Specification.new do |spec|
-  spec.name                  = "jekyll-bitly"
-  spec.version               = Jekyll::BitlyFilter::VERSION
-  spec.authors               = ["Torgny Bjers"]
-  spec.email                 = ["torgny.bjers@gmail.com"]
+  spec.name                  = "jekyll_bitly_next"
+  spec.version               = JekyllBitlyNext::VERSION
+  spec.authors               = ["Torgny Bjers", "Saiqul Haq"]
+  spec.email                 = ["torgny.bjers@gmail.com", "saiqulhaq@gmail.com"]
 
   spec.summary               = "Jekyll Bit.ly filter"
   spec.description           = "Jekyll filter that uses Bit.ly to shorten URLs."
-  spec.homepage              = "https://github.com/tbjers/jekyll-bitly"
+  spec.homepage              = "https://github.com/saiqulhaq/jekyll_bitly_next"
   spec.license               = "MIT"
-  spec.required_ruby_version = ">= 2.0.0"
+  spec.required_ruby_version = ">= 2.7.0"
 
   spec.files = `git ls-files -z`.split("\x0").reject do |f|
     f.match(%r{^(test|spec|features)/})

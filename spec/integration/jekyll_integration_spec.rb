@@ -2,32 +2,37 @@ require "spec_helper"
 
 RSpec.describe "Jekyll Integration", :vcr do
   let(:source_dir) { File.expand_path("../fixtures", __dir__) }
-  let(:destination_dir) { File.expand_path("../fixtures/_site", __dir__) }
-
-  let(:site) do
-    Jekyll::Site.new(Jekyll.configuration({
-                                            "source" => source_dir,
-                                            "destination" => destination_dir,
-                                            "url" => "http://localhost:4000",
-                                            "baseurl" => ""
-                                          }))
+  let(:destination_dir) do |example|
+    test_name = example.metadata[:description].to_s
+    test_name = test_name.downcase.gsub(/\s+/, "_").gsub(/[^a-z0-9_]/, "")
+    path = File.expand_path("/tmp/#{test_name}", __dir__)
+    path 
   end
 
-  before(:all) do
-    # Ensure we have the token from .env
-    puts "Warning: BITLY_TOKEN not found in environment" unless ENV["BITLY_TOKEN"]
-  end
+  around do |example|
+    FileUtils.rm_rf(destination_dir) if Dir.exist?(destination_dir)
 
-  describe "Jekyll Build Integration", vcr: { cassette_name: "jekyll_build_integration" } do
-    before do
-      # Clean the destination directory
-      FileUtils.rm_rf(destination_dir) if Dir.exist?(destination_dir)
+    cassette_name = example.metadata[:full_description].to_s
+    cassette_name = cassette_name.downcase.gsub(/\s+/, "_").gsub(/[^a-z0-9_]/, "")
+    site = Jekyll::Site.new(Jekyll.configuration({
+      "source" => source_dir,
+      "destination" => destination_dir,
+      "url" => "http://localhost:4000",
+      "baseurl" => "",
+      "disable_disk_cache" => true,
+    }))
+
+    puts "destination_dir: #{destination_dir}"
+
+    VCR.use_cassette(cassette_name) do
+      site.process
     end
 
-    it "builds the Jekyll site successfully with bitly filter" do
-      # Process the site
-      site.process
+    example.run
+  end
 
+  describe "Jekyll Build Integration" do
+    it "builds the Jekyll site successfully with bitly filter" do
       # Check that the site was built
       expect(Dir.exist?(destination_dir)).to be true
       expect(File.exist?(File.join(destination_dir, "index.html"))).to be true
@@ -46,8 +51,6 @@ RSpec.describe "Jekyll Integration", :vcr do
     end
 
     it "generates different short URLs for different long URLs" do
-      site.process
-
       html_content = File.read(File.join(destination_dir, "index.html"))
 
       # Extract all bit.ly URLs
@@ -68,10 +71,6 @@ RSpec.describe "Jekyll Integration", :vcr do
   end
 
   describe "Static File Testing" do
-    before do
-      site.process
-    end
-
     it "creates valid HTML structure" do
       html_file = File.join(destination_dir, "index.html")
       html_content = File.read(html_file)
@@ -97,10 +96,6 @@ RSpec.describe "Jekyll Integration", :vcr do
   end
 
   describe "HTML Content Validation" do
-    before do
-      site.process
-    end
-
     it "generates valid shortened links in HTML" do
       html_file = File.join(destination_dir, "index.html")
       html_content = File.read(html_file)
